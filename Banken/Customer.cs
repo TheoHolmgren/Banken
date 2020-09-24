@@ -13,7 +13,7 @@ namespace Banken
 
         public string ShowCustomer() 
         {
-            return Name + "with balance: " + Balance; 
+            return Name + " med saldo: " + Balance; 
         }
     }
 }
