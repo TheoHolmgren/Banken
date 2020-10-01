@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Banken
 {
-    class Customer
+    class Customer //Klassen Customer
     {
-        public string Name { get; set; }
+        public string Name { get; set; } //
         public int Balance { get; set; }
 
         public string ShowCustomer() 
