@@ -56,7 +56,7 @@ namespace Banken
                         Console.Clear(); //Rensar all output i konsollen så den är tom
                         Console.WriteLine("Användaren valde 4"); //Skriver ut att användaren valde 4
                         Console.WriteLine("Vilken användare vill se sitt saldo? :"); //Frågar användaren vilken användare som vill se sitt saldo
-                        int answer = Convert.ToInt32(Console.ReadLine()); //Omvandlar svaret till en int
+                        int answer = Convert.ToInt32(Console.ReadLine()); //Omvandlar svaret till en int, sparar det i variabeln answer
 
                         Console.WriteLine(Customers[answer].ShowCustomer()); //Anropar funktionen ShowCustomer för den valda kunden 
                         Console.WriteLine("Press any key to continue..."); //Stannar programmet tills användaren tryckt på en knapp
@@ -71,7 +71,7 @@ namespace Banken
                         Console.WriteLine("Användaren valde 5"); //Skriver ut att användaren valde 5
                         Console.WriteLine("Vilket konto ska lägga till pengar? :"); //Frågar användaren vilket konto som ska lägga till pengar
                         int answer1 = Convert.ToInt32(Console.ReadLine()); //Tar svaret och omvandlar det till en int, sparar svaret i variabeln answer1
-                        Console.WriteLine("Hur mycket pengar önskas lägga in? :"); //Frågar användaren hur mycket pengar de vill lägga in
+                        Console.WriteLine("Hur mycket pengar önskas lägga in? :"); //Frågar användaren hur mycket pengar de vill lägga in på sitt konto
                         int answermoney = Convert.ToInt32(Console.ReadLine()); //Tar svaret och omvandlar det till en int, sparar svaret i variabeln answermoney
 
                         Customers[answer1].Balance += answermoney; //Lägger till det antal pengar som användaren angav till det konto som användaren angav
