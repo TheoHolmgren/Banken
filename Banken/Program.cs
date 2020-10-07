@@ -45,7 +45,7 @@ namespace Banken
                         Console.Clear(); //Rensar all output i konsollen så den är tom
                         Console.WriteLine("Användaren valde 3"); //Skriver ut att användaren valde 3
                         Showallcustomers(); //Anropar funktionen Showallcustomers för att visa listan med alla kunder i
-                        Console.WriteLine("Press any key to continue..."); //Stannar programmet tills det att användaren har tryckt på en knapp
+                        Console.WriteLine("Press any key to continue..."); //Stannar programmet tills det att användaren har tryckt på valfri knapp
                         Console.ReadKey();
                         Console.Clear(); //Rensar all output i konsollen så den är tom
 
@@ -55,11 +55,11 @@ namespace Banken
                     case 4: //Utfall 4, om användaren väljer 4
                         Console.Clear(); //Rensar all output i konsollen så den är tom
                         Console.WriteLine("Användaren valde 4"); //Skriver ut att användaren valde 4
-                        Console.WriteLine("Vilken användare vill se sitt saldo? :"); //Frågar användaren vilken användare som vill se sitt saldo
+                        Console.WriteLine("Vilken användare vill se sitt saldo? :"); //Frågar användaren vilken användare önskar se sitt saldo
                         int answer = Convert.ToInt32(Console.ReadLine()); //Omvandlar svaret till en int, sparar det i variabeln answer
 
                         Console.WriteLine(Customers[answer].ShowCustomer()); //Anropar funktionen ShowCustomer för den valda kunden 
-                        Console.WriteLine("Press any key to continue..."); //Stannar programmet tills användaren tryckt på en knapp
+                        Console.WriteLine("Press any key to continue..."); //Stannar programmet tills användaren tryckt på valfri knapp
                         Console.ReadKey();
                         Console.Clear(); //Rensar all output i konsollen så den är tom
 
@@ -76,7 +76,7 @@ namespace Banken
 
                         Customers[answer1].Balance += answermoney; //Lägger till det antal pengar som användaren angav till det konto som användaren angav
                         Console.WriteLine("Ditt saldo är nu: " + Customers[answer1].Balance); //Visar saldot för den valda användaren
-                        Console.WriteLine("Press any key to continue...");//Stannar programmet tills användaren trycker på en knapp
+                        Console.WriteLine("Press any key to continue...");//Stannar programmet tills användaren trycker på valfri knapp
                         Console.ReadKey();
                         Console.Clear(); //Rensar all output i konsollen så den är tom
                         break;
@@ -98,7 +98,7 @@ namespace Banken
                         {
                             Console.WriteLine("Not enough money in the account"); //Skriver ut att användaren inte har nog högt saldo
                         }
-                        Console.WriteLine("Press any key to continue..."); //Stannar programmet tills användaren trycker på en knapp
+                        Console.WriteLine("Press any key to continue..."); //Stannar programmet tills användaren trycker på valfri knapp
                         Console.ReadKey();
                         Console.Clear(); //Rensar all output i konsollen så den är tom
 
@@ -106,7 +106,7 @@ namespace Banken
                     case 7: //Utfall 7, om användaren väljer 7
                         Console.Clear(); //Rensar all output i konsollen så den är tom
                         Console.WriteLine("Användaren valde 7"); //Skriver ut att användaren valde 7
-                        System.Environment.Exit(0); //Stänger ner programmet                      
+                        System.Environment.Exit(0); //Stänger av programmet                      
                         break;
                 }
                 choice = SelectMenuItem(); //Vilket menyalternativ användaren valde
@@ -121,7 +121,7 @@ namespace Banken
             }
         }
 
-        private static int SelectMenuItem() //Visa alla menyalternativ
+        private static int SelectMenuItem() //Visar alla menyalternativ
         {
             Console.WriteLine("1 : Lägg till en användare"); //Skriver ut 1 : Lägg till en användare
             Console.WriteLine("2 : Ta bort en användare"); //Skriver ut 2 : Ta bort en användare
