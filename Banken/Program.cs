@@ -69,13 +69,13 @@ namespace Banken
                     case 5: //Utfall 5, om användaren väljer 5
                         Console.Clear(); //Rensar all output i konsollen så den är tom
                         Console.WriteLine("Användaren valde 5"); //Skriver ut att användaren valde 5
-                        Console.WriteLine("Vilket konto ska lägga till pengar? :"); //Frågar användaren vilket konto som ska lägga till pengar
+                        Console.WriteLine("Vilket konto ska lägga till pengar? :"); //Frågar användaren vilket konto som önskar lägga till pengar
                         int answer1 = Convert.ToInt32(Console.ReadLine()); //Tar svaret och omvandlar det till en int, sparar svaret i variabeln answer1
                         Console.WriteLine("Hur mycket pengar önskas lägga in? :"); //Frågar användaren hur mycket pengar de vill lägga in på sitt konto
                         int answermoney = Convert.ToInt32(Console.ReadLine()); //Tar svaret och omvandlar det till en int, sparar svaret i variabeln answermoney
 
                         Customers[answer1].Balance += answermoney; //Lägger till det antal pengar som användaren angav till det konto som användaren angav
-                        Console.WriteLine("Ditt saldo är nu: " + Customers[answer1].Balance); //Visar saldot för den valda användaren
+                        Console.WriteLine("Ditt saldo är nu: " + Customers[answer1].Balance); //Visar den valda användarens saldo
                         Console.WriteLine("Press any key to continue...");//Stannar programmet tills användaren trycker på valfri knapp
                         Console.ReadKey();
                         Console.Clear(); //Rensar all output i konsollen så den är tom
@@ -92,11 +92,11 @@ namespace Banken
                         if (withdrawalamount < Customers[answerwithdraw].Balance) //Om den valda summan är mindre än den valda kundens saldo
                         {
                             Customers[answerwithdraw].Balance -= withdrawalamount; //Subtrahera den valda summan från den valda kundens saldo
-                            Console.WriteLine("Du tog ut: " + withdrawalamount); //Skriver ut hur mycket pengar användaren tog ut
+                            Console.WriteLine("Du tog ut: " + withdrawalamount); //Skriver ut hur mycket pengar användaren tog ut från sitt konto
 
                         } else if (withdrawalamount > Customers[answerwithdraw].Balance) //Om den valda summan är större än den valda kundens saldo
                         {
-                            Console.WriteLine("Not enough money in the account"); //Skriver ut att användaren inte har nog högt saldo
+                            Console.WriteLine("Not enough money in the account"); //Skriver ut att användaren inte har nog med pengar på sitt konto
                         }
                         Console.WriteLine("Press any key to continue..."); //Stannar programmet tills användaren trycker på valfri knapp
                         Console.ReadKey();
@@ -115,7 +115,7 @@ namespace Banken
 
         private static void Showallcustomers() //Visa alla kunder i listan Customers
         {
-            for (int i = 0; i < Customers.Count; i++) //så länge i är mindre än antalet kunder i listan Customers, öka i med 1
+            for (int i = 0; i < Customers.Count; i++) //Så länge i är mindre än antalet kunder i listan Customers, öka i med 1 (Inkrementera)
             {
                 Console.WriteLine(Customers[i].ShowCustomer()); //Skriv ut kunden med index i, kund 0, kund 1, kund 2 osv...
             }
