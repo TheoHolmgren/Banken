@@ -8,6 +8,15 @@ namespace Banken
 {
     class Customer //Klassen Customer
     {
+        public Customer() //E tom konstruktor
+        {
+
+        }
+        public Customer(string Name) //En konstruktor som sätter namnet
+        {
+            this.Name = Name;
+            this.Balance = 0;
+        }
         public string Name { get; set; } //Medlemsvariabel i klassen Customer
         public int Balance { get; set; } //Medlemsvariabel i klassen Customer
 

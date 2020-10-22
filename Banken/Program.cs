@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Banken
 {
@@ -10,9 +11,31 @@ namespace Banken
     {
         static List<Customer> Customers = new List<Customer>();  // Listan Customers skapas, med Customer som innehåll 
         static void Main(string[] args)
+
         {
+            string filepath = @"C:\test\";  //Sökvägen där filen som ska skrivas till finns
+            string filename = @"IO.txt"; //Filnamnet
+
+
             
 
+            string text = ReadFile(filepath + filename);
+            if (text != "") //Kollar så att text inte är tomma listan
+            {
+                string[] items = text.Split(';'); //Splittar texten med ;
+                foreach (string item in items) //Loopar igenom och lägger till kunder
+                {
+                    Customer ui1 = new Customer(item);
+                    Customers.Add(ui1);
+
+                }
+            }
+            
+
+            Console.WriteLine(text); //Skriver ut innehållet i text-variabeln
+
+            Console.ReadKey();
+            
             int choice = SelectMenuItem(); // SelectMenuItem är var du väljer vilket menyalternativ du ska använda 
 
             while (choice != 7) // Så länge valet inte är 7:an så spottar den ut listan efter varje val av menyalternativ
@@ -111,6 +134,13 @@ namespace Banken
                 }
                 choice = SelectMenuItem(); //Vilket menyalternativ användaren valde
             }
+
+            string users = ""; //Tilldelar users tomma strängen
+            foreach (Customer u in Customers) //Loopar igenom kunlistan
+            {
+                users += u.Name + ";"; //Tilldelar users Namn och ;
+            }
+            WriteFile(filepath, filename, users); //Skriver ner till filen
         }
 
         private static void Showallcustomers() //Visa alla kunder i listan Customers
@@ -135,6 +165,30 @@ namespace Banken
             int choice = int.Parse(Console.ReadLine()); //Läser in användarens val
             return choice; //Returnerar valet
 
+        }
+        static string ReadFile(string filename)
+        {
+            if (File.Exists(filename)) //Om filename existerar
+            {
+                string text = File.ReadAllText(filename); //Tilldela text texten i filename
+                return text; //Returnera texten ur filename
+            }
+            return ""; //Returnera tomma listan
+        }
+
+        static void WriteFile(string filepath, string filename, string text)
+        {
+            string f = filepath + filename; //Tilldela f filepath och 
+
+            if (File.Exists(f)) //Om f existerar
+            {
+                File.Delete(f); //Radera f
+            }
+            if (Directory.Exists(filepath) == false)  //Om sökvägen filepath inte finns...
+            {
+                Directory.CreateDirectory(filepath); //Skapa den
+            }
+            File.WriteAllText(f, text); //Skriver till filen
         }
     }
 }
